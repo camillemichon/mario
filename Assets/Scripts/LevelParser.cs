@@ -9,6 +9,8 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject waterPrefab;
+    public GameObject flagPrefab;
     public Transform environmentRoot;
 
     // --------------------------------------------------------------------------
@@ -57,7 +59,7 @@ public class LevelParser : MonoBehaviour
             for (int column = 0; column < letters.Length; column++)
             {
                 var letter = letters[column];
-                Vector2 position = new Vector2(column, row);
+                Vector3 position = new Vector2(column, row);
                 switch (letter)
                 {
                     case 'x':
@@ -72,6 +74,15 @@ public class LevelParser : MonoBehaviour
                     case 's':
                         Instantiate(stonePrefab, position, Quaternion.identity, environmentRoot);
                         break;
+                    
+                    case 'w':
+                        Instantiate(waterPrefab, position, Quaternion.identity, environmentRoot);
+                        break;
+                    
+                    case 'f':
+                        Instantiate(flagPrefab, flagPrefab.transform.position + position, flagPrefab.transform.rotation, environmentRoot);
+                        break;
+
                 }
             }
 

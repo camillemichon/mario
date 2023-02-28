@@ -18,7 +18,7 @@ public class CountDown : MonoBehaviour
             if (time < 0)
             {
                 run = false;
-                Debug.Log("OVER !");
+                Debug.Log("OVER ! You lost !");
             }
         }
     }
